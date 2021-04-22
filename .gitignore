@@ -2,3 +2,7 @@
 .idea/
 
 mnist/
+
+img/
+
+__pycache__/
