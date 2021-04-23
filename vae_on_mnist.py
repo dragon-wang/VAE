@@ -7,6 +7,7 @@ import utils
 
 
 class VAE(nn.Module):
+    """Implementation of VAE(Variational Auto-Encoder)"""
     def __init__(self):
         super(VAE, self).__init__()
 
@@ -54,8 +55,8 @@ if __name__ == '__main__':
     recon = None
     img = None
 
-    utils.make_dir("./img")
-    utils.make_dir("./model_weights")
+    utils.make_dir("./img/vae")
+    utils.make_dir("./model_weights/vae")
 
     train_data = torchvision.datasets.MNIST(
         root='./mnist',
@@ -95,14 +96,14 @@ if __name__ == '__main__':
         # save imgs
         if epoch % 10 == 0:
             imgs = utils.to_img(recon.detach())
-            path = "./img/epoch{}.png".format(epoch+1)
+            path = "./img/vae/epoch{}.png".format(epoch+1)
             torchvision.utils.save_image(imgs, path, nrow=10)
             print("save:", path, "\n")
 
-    torchvision.utils.save_image(img, "./img/raw.png", nrow=10)
-    print("save raw image:./img/raw/png", "\n")
+    torchvision.utils.save_image(img, "./img/vae/raw.png", nrow=10)
+    print("save raw image:./img/vae/raw/png", "\n")
 
     # save val model
-    utils.save_model(vae, "./model_weights/vae_weights.pth")
+    utils.save_model(vae, "./model_weights/vae/vae_weights.pth")
 
 

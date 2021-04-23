@@ -7,6 +7,7 @@ import utils
 
 
 class CVAE(nn.Module):
+    """Implementation of CVAE(Conditional Variational Auto-Encoder)"""
     def __init__(self, feature_size, class_size, latent_size):
         super(CVAE, self).__init__()
 

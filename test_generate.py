@@ -8,7 +8,7 @@ import utils
 def generate_from_vae(sample_num, latent_dim):
     # Load vae model
     vae = VAE()
-    utils.load_model(vae, "./model_weights/vae_weights.pth")
+    utils.load_model(vae, "./model_weights/vae/vae_weights.pth")
 
     # sample from the latent space
     z = torch.randn(sample_num, latent_dim)
@@ -18,7 +18,7 @@ def generate_from_vae(sample_num, latent_dim):
     img = utils.to_img(recon)
 
     # save img
-    torchvision.utils.save_image(img, "./img/generate_from_vae.png", nrow=10)
+    torchvision.utils.save_image(img, "./img/vae/generate_from_vae.png", nrow=10)
 
 
 def generate_from_cvae(sample_num: int, latent_dim: int, label: int):
