@@ -18,7 +18,7 @@ def generate_from_vae(sample_num, latent_dim):
     img = utils.to_img(recon)
 
     # save img
-    torchvision.utils.save_image(img, "./img/vae/generate_from_vae.png", nrow=10)
+    torchvision.utils.save_image(img, "./generate results/generate_from_vae.png", nrow=10)
 
 
 def generate_from_cvae(sample_num: int, latent_dim: int, label: int):
@@ -36,9 +36,10 @@ def generate_from_cvae(sample_num: int, latent_dim: int, label: int):
     img = utils.to_img(recon)
 
     # save img
-    torchvision.utils.save_image(img, "./img/cvae/generate_from_vae.png", nrow=10)
+    torchvision.utils.save_image(img, "./generate results/generate_from_cvae_with_label_{}.png".format(label), nrow=10)
 
 
 if __name__ == '__main__':
-    # generate_from_vae(sample_num=100, latent_dim=10)
+    generate_from_vae(sample_num=100, latent_dim=10)
+    generate_from_cvae(sample_num=100, latent_dim=10, label=1)
     generate_from_cvae(sample_num=100, latent_dim=10, label=9)
