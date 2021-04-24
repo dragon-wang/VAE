@@ -1,5 +1,6 @@
 ## VAE generate results
 Sample 100 latent codes from normal distribution and input them into the trained decoder:
+
 ![generate_from_vae](generate_results/generate_from_vae.png)
 
 
